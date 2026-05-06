@@ -39,3 +39,15 @@ function startLoadGeneration() {
 }
 
 startLoadGeneration();
+
+// Dummy HTTP server to keep Render's Free Web Service happy
+const http = require('http');
+const PORT = process.env.PORT || 10000;
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('Load Generator 1 is running!');
+});
+
+server.listen(PORT, () => {
+    console.log(`Dummy server listening on port ${PORT} to keep Render happy.`);
+});
