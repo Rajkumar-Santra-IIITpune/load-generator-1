@@ -22,7 +22,8 @@ function generateTask() {
 
 function startLoadGeneration() {
     setInterval(async () => {
-        const taskCount = Math.floor(Math.random() * 5) + 1;
+        // Increased load: generates between 10 and 30 tasks per interval
+        const taskCount = Math.floor(Math.random() * 21) + 10;
         const tasks = Array.from({ length: taskCount }, generateTask);
         
         try {
@@ -35,7 +36,7 @@ function startLoadGeneration() {
         } catch (error) {
             console.error('Error sending load:', error.message);
         }
-    }, 2000); // Generate load every 2 seconds
+    }, 1000); // Increased load: generates load every 1 second instead of 2
 }
 
 startLoadGeneration();
